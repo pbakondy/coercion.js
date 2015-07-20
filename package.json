@@ -1,0 +1,19 @@
+{
+  "name": "coercion.js",
+  "version": "1.0.0",
+  "description": "JavaScript Coercion reimplemented",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "javascript",
+    "coercion"
+  ],
+  "author": "Peter Bakondy <pbakondy@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  }
+}
