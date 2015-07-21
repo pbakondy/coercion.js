@@ -8,9 +8,10 @@ It happens when you use == (eqeq) operator to compare two values
 with different types.
 
 This code is made to understand how native JavaScript works.
-The code uses explicit String() and Number() type conversions.
+The code uses explicit <code>String()</code> and <code>Number()</code> type conversions.
 
-Idea:
-- http://webreflection.blogspot.hu/2010/10/javascript-coercion-demystified.html
-- https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/
-- https://dorey.github.io/JavaScript-Equality-Table/
+References:
+
+- http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3
+- https://github.com/getify/You-Dont-Know-JS/blob/master/types%20&%20grammar/ch4.md
+- http://dorey.github.io/JavaScript-Equality-Table/unified/
