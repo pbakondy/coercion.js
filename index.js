@@ -12,8 +12,17 @@
     return typeof a;
   }
 
+  function isPrimitive(a) {
+    return typeOf(a) !== 'object';
+  }
+
+  /**
+   * @see http://www.ecma-international.org/ecma-262/5.1/#sec-8.12.8
+   * @param <Any>
+   * @return <primitive value>
+   */
   function toPrimitive(a, hint) {
-    if (typeOf(a) !== 'object') {
+    if (isPrimitive(a)) {
       return a;
     }
 
@@ -24,14 +33,14 @@
 
       if (typeof a['toString'] === 'function') {
         toStr = a.toString();
-        if (typeof toStr !== 'object') {
+        if (isPrimitive(toStr)) {
           return toStr;
         }
       }
 
       if (typeof a['valueOf'] === 'function') {
         valOf = a.valueOf();
-        if (typeof valOf !== 'object') {
+        if (isPrimitive(valOf)) {
           return valOf;
         }
       }
@@ -41,14 +50,14 @@
 
       if (typeof a['valueOf'] === 'function') {
         valOf = a.valueOf();
-        if (typeof valOf !== 'object') {
+        if (isPrimitive(valOf)) {
           return valOf;
         }
       }
 
       if (typeof a['toString'] === 'function') {
         toStr = a.toString();
-        if (typeof toStr !== 'object') {
+        if (isPrimitive(toStr)) {
           return toStr;
         }
       }
@@ -78,6 +87,8 @@
     return toNumber(toPrimitive(a), 'number');
   }
 
+  // return true if 'a' and 'b' are exactly the same sequence of characters
+  // (same length and same characters in corresponding positions)
   function eqeqString(a, b) {
     if (a.length !== b.length) {
       return false;
@@ -110,7 +121,8 @@
       return false;
     }
 
-    if (eqeqString(String(a), String(b))) {
+    // If 'a' is the same Number value as 'b', return true.
+    if ((new Number(a)).valueOf() === (new Number(b)).valueOf()) {
       return true;
     }
 
@@ -126,6 +138,7 @@
   }
 
   /**
+   * @see http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3
    * @param <Any> x
    * @param <Any> y
    * @return <Boolean>
